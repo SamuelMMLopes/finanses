@@ -1,0 +1,19 @@
+<po-page-default p-title="Relatórios">
+  <po-widget p-title="Selecione o mês e o ano para gerar os relatórios" p-primary-label="Gerar Relatórios"
+    (p-primary-action)="generateReports()">
+    <po-combo class="po-md-7" p-label="Mês" [p-options]="mouthOptions" [ngModel]="month"
+      (ngModelChange)="month = $event"></po-combo>
+    <po-combo class="po-md-5" p-label="Ano" [p-options]="yearsOptions" [ngModel]="year" (ngModelChange)="year = $event">
+    </po-combo>
+  </po-widget>
+  <po-divider></po-divider>
+  <po-widget p-background="../../../assets/red.png" [p-primary]="true" class="po-md-4" p-title="Total de Despesas">
+    <div class="po-font-subtitle po-text-center">{{expenseTotal}}</div>
+  </po-widget>
+  <po-widget p-background="../../../assets/green.png" [p-primary]="true" class="po-md-4" p-title="Total de Receitas">
+    <div class="po-font-subtitle po-text-center">{{revenueTotal}}</div>
+  </po-widget>
+  <po-widget p-background="../../../assets/blue.png" [p-primary]="true" class="po-md-4" p-title="Saldo">
+    <div class="po-font-subtitle po-text-center">{{balance}}</div>
+  </po-widget>
+</po-page-default>

@@ -1,0 +1,16 @@
+<po-page-default p-title="Categorias">
+  <po-button
+    p-label="Nova Categoria"
+    p-icon="po-icon-plus"
+    p-kind="primary"
+    (p-click)="newResource()"
+  ></po-button>
+  <po-divider></po-divider>
+  <po-table
+    [p-actions-right]="true"
+    [p-columns]="tableColumns"
+    [p-items]="resources"
+    [p-actions]="tableActions"
+    p-container="shadow"
+  ></po-table>
+</po-page-default>

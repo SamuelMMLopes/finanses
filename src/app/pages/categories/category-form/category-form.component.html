@@ -1,0 +1,31 @@
+<po-page-default [p-title]="pageTitle">
+<form [formGroup]="resourceForm">
+  <div class="po-row">
+    <po-input
+      id="name"
+      class="po-md-5"
+      formControlName="name"
+      p-clean
+      p-label="Categoria"
+      p-error-pattern="O campo deve conter no mínimo 2 caracteres"
+    ></po-input>
+    <po-input
+      id="description"
+      class="po-md-7"
+      formControlName="description"
+      p-clean
+      p-label="Descrição"
+    ></po-input>
+  </div>
+  <po-divider></po-divider>
+  <div class="po-row">
+    <po-button
+      class="po-md-2"
+      p-label="Salvar"
+      [p-disabled]="!resourceForm.valid || submittingForm"
+      (p-click)="submitForm()"
+      p-kind="primary"
+    ></po-button>
+  </div>
+</form>
+</po-page-default>

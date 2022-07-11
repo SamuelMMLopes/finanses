@@ -1,0 +1,33 @@
+<po-page-default [p-title]="pageTitle">
+  <form [formGroup]="resourceForm">
+    <div class="po-row">
+      <!--type-->
+      <po-combo id="name" formControlName="type" class="po-md-2" p-label="Tipo" [p-options]="typeOptions">
+      </po-combo>
+      <!--name-->
+      <po-input id="name" class="po-md-5" formControlName="name" p-clean p-label="Lançamento"
+        p-error-pattern="O campo deve conter no mínimo 2 caracteres"></po-input>
+      <!--amount-->
+      <po-decimal id="amount" class="po-md-2" formControlName="amount" p-label="Valor" p-locale="pt-BR"></po-decimal>
+      <!--paid-->
+      <po-switch id="paid" class="po-md-3" formControlName="paid" p-label="Situação" p-label-off="Pendente"
+        p-label-on="Pago"></po-switch>
+    </div>
+    <div class="po-row">
+      <!--date-->
+      <po-datepicker id="date" class="po-md-2" p-label="Data" formControlName="date" p-format="dd/mm/yyyy">
+      </po-datepicker>
+      <!--description-->
+      <po-input id="description" class="po-md-5" formControlName="description" p-clean p-label="Descrição"></po-input>
+      <!--category-->
+      <po-combo formControlName="categoryId" class="po-md-5" name="select" p-label="Categoria"
+      [p-options]="categoriesOptions">
+      </po-combo>
+    </div>
+    <po-divider></po-divider>
+    <div class="po-row">
+      <po-button class="po-md-2" p-label="Salvar" [p-disabled]="!resourceForm.valid || submittingForm"
+        (p-click)="submitForm()" p-kind="primary"></po-button>
+    </div>
+  </form>
+</po-page-default>

@@ -1,35 +1,29 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { async, TestBed } from '@angular/core/testing'
+import { RouterTestingModule } from '@angular/router/testing'
+
+import { PoMenuModule, PoPageModule, PoToolbarModule } from '@po-ui/ng-components'
+
+import { AppComponent } from './app.component'
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
       imports: [
+        PoMenuModule,
+        PoPageModule,
+        PoToolbarModule,
         RouterTestingModule
       ],
       declarations: [
         AppComponent
-      ],
-    }).compileComponents();
-  });
+      ]
+    }).compileComponents()
+  }))
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+    const fixture = TestBed.createComponent(AppComponent)
+    const app = fixture.debugElement.componentInstance
 
-  it(`should have as title 'finanses'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('finanses');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('finanses app is running!');
-  });
-});
+    expect(app).toBeTruthy()
+  })
+})
